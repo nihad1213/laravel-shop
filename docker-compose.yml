@@ -8,6 +8,9 @@ services:
     working_dir: /var/www/html
     volumes:
       - ./:/var/www/html
+    depends_on:
+      db:
+        condition: service_healthy
     networks:
       - laravel
 
@@ -27,17 +30,22 @@ services:
 
   db:
     image: mariadb:11.4
-    container_name: laravel-db
+    container_name: laravel_db
     restart: unless-stopped
     ports:
       - "3306:3306"
     environment:
-      MARIADB_DATABASE: ${DB_DATABASE:-laravel}
-      MARIADB_USER: ${DB_USERNAME:-laravel}
-      MARIADB_PASSWORD: ${DB_PASSWORD:-rootpassword}
-      MARIADB_ROOT_PASSWORD: ${DB_PASSWORD:-rootpassword}
+      MARIADB_DATABASE: laravel_shop
+      MARIADB_USER: laravel
+      MARIADB_PASSWORD: secret
+      MARIADB_ROOT_PASSWORD: secret
     volumes:
       - dbdata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
     networks:
       - laravel
 
