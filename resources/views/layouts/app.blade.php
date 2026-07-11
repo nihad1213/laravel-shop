@@ -9,14 +9,14 @@
 </head>
 
 <body>
-    <div>
-        @include('layouts.partials.header')
+    <div id="app">
+        <app-header></app-header>
     
             <main>
                 @yield('content')
             </main>
     
-        @include('layouts.partials.footer')
+        <app-footer></app-footer>
     </div>
 </body>
 </html>

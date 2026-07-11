@@ -8,12 +8,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libonig-dev \
     libxml2-dev \
     libzip-dev \
+    && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y nodejs \
     && docker-php-ext-install -j$(nproc) \
-    pdo_mysql \
-    mbstring \
-    zip \
-    bcmath \
-    && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/*
+        pdo_mysql \
+        mbstring \
+        zip \
+        bcmath \
+    && apt-get autoremove -y \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
