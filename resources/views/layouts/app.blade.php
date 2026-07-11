@@ -6,12 +6,12 @@
     <title>@yield('title', 'Laravel Shop')</title>
 </head>
 <body>
-    @include('layout.partials.header')
+    @include('layouts.partials.header')
 
     <main>
         @yield('content')
     </main>
 
-    @include('layout.partials.footer')
+    @include('layouts.partials.footer')
 </body>
 </html>
