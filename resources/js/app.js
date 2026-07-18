@@ -1,14 +1,16 @@
-import {createApp} from 'vue';
+import './bootstrap';
+import { createApp, h } from 'vue';
+import { createInertiaApp } from '@inertiajs/vue3';
 
-import Header from './components/Layout/Header.vue';
-import Footer from './components/Layout/Footer.vue';
-import router from './router';
-
-const app = createApp({});
-
-app.component('app-header', Header);
-app.component('app-footer', Footer);
-
-app.use(router);
-
-app.mount('#app');
+createInertiaApp({
+  resolve: name => {
+    // Automatically import all Vue components in the Pages directory
+    const pages = import.meta.glob('./Pages/**/*.vue', { eager: true }); 
+    return pages[`./Pages/${name}.vue`];
+  },
+  setup({ el, App, props, plugin }) {
+    createApp({ render: () => h(App, props) })
+      .use(plugin)
+      .mount(el);
+  },
+});
