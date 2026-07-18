@@ -13,7 +13,7 @@
         <app-header></app-header>
     
             <main>
-                @yield('content')
+                <router-view></router-view>
             </main>
     
         <app-footer></app-footer>
