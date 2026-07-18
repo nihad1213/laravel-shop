@@ -1,12 +1,9 @@
-<template>
-    <p>Welcome to the Laravel Shop!</p>
-</template>
-
 <script setup>
+import MainLayout from '../Layouts/MainLayout.vue';
 </script>
 
-<style scoped>
-footer {
-    padding: 1rem;
-}
-</style>
+<template>
+    <MainLayout>
+        <p>Welcome to the Laravel Shop! Inertia</p>
+    </MainLayout>
+</template>
