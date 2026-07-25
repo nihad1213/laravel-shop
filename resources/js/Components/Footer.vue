@@ -5,7 +5,7 @@
         <div class="space-y-8">
           <img class="h-9" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Company logo" />
           <p class="text-sm/6 text-balance text-[#907AD6]">
-            Making the world a better place through constructing elegant hierarchies.
+            Buy, sell, and discover music from independent creators worldwide.
           </p>
           <div class="flex gap-x-6">
             <a
@@ -22,7 +22,7 @@
         <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
           <div class="md:grid md:grid-cols-2 md:gap-8">
             <div>
-              <h3 class="text-sm/6 font-semibold text-white">Solutions</h3>
+              <h3 class="text-sm/6 font-semibold text-white">Products</h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="item in navigation.solutions" :key="item.name">
                   <a :href="item.href" class="text-sm/6 font-bold text-[#907AD6] hover:text-[#7FDEFF]">{{ item.name }}</a>
@@ -30,7 +30,7 @@
               </ul>
             </div>
             <div class="mt-10 md:mt-0">
-              <h3 class="text-sm/6 font-semibold text-white">Support</h3>
+              <h3 class="text-sm/6 font-semibold text-white">Marketplace</h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="item in navigation.support" :key="item.name">
                   <a :href="item.href" class="text-sm/6 font-bold text-[#907AD6] hover:text-[#7FDEFF]">{{ item.name }}</a>
@@ -40,7 +40,7 @@
           </div>
           <div class="md:grid md:grid-cols-2 md:gap-8">
             <div>
-              <h3 class="text-sm/6 font-semibold text-white">Company</h3>
+              <h3 class="text-sm/6 font-semibold text-white">About Us</h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="item in navigation.company" :key="item.name">
                   <a :href="item.href" class="text-sm/6 font-bold text-[#907AD6] hover:text-[#7FDEFF]">{{ item.name }}</a>
@@ -48,7 +48,7 @@
               </ul>
             </div>
             <div class="mt-10 md:mt-0">
-              <h3 class="text-sm/6 font-semibold text-white">Legal</h3>
+              <h3 class="text-sm/6 font-semibold text-white">Contact</h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="item in navigation.legal" :key="item.name">
                   <a :href="item.href" class="text-sm/6 font-bold text-[#907AD6] hover:text-[#7FDEFF]">{{ item.name }}</a>
@@ -86,7 +86,7 @@
         </form>
       </div>
       <div class="mt-8 border-t border-[#DABFFF]/10 pt-8">
-        <p class="text-sm/6 text-[#907AD6]">&copy; {{ currentYear }} Your Company, Inc. All rights reserved.</p>
+        <p class="text-sm/6 text-[#907AD6]">&copy; {{ currentYear }} Laravel Shop, Inc. All rights reserved.</p>
       </div>
     </div>
   </footer>

@@ -16,7 +16,7 @@
       <PopoverGroup class="hidden lg:flex lg:gap-x-12">
         <Popover class="relative">
           <PopoverButton class="flex items-center gap-x-1 text-sm/6 font-semibold text-white">
-            Product
+            Products
             <ChevronDownIcon class="size-5 flex-none text-[#907AD6]" aria-hidden="true" />
           </PopoverButton>
 
@@ -46,9 +46,9 @@
           </transition>
         </Popover>
 
-        <a href="#" class="text-sm/6 font-bold text-white">Features</a>
         <a href="#" class="text-sm/6 font-bold text-white">Marketplace</a>
-        <a href="#" class="text-sm/6 font-bold text-white">Company</a>
+        <a href="#" class="text-sm/6 font-bold text-white">About Us</a>
+        <a href="#" class="text-sm/6 font-bold text-white">Contact</a>
       </PopoverGroup>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <a href="#" class="text-sm/6 font-bold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
