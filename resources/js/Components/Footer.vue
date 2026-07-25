@@ -1,10 +1,10 @@
 <template>
-  <footer class="bg-gray-900">
+  <footer class="bg-[#2C2A4A]">
     <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
       <div class="xl:grid xl:grid-cols-3 xl:gap-8">
         <div class="space-y-8">
           <img class="h-9" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Company logo" />
-          <p class="text-sm/6 text-balance text-gray-400">
+          <p class="text-sm/6 text-balance text-[#907AD6]">
             Making the world a better place through constructing elegant hierarchies.
           </p>
           <div class="flex gap-x-6">
@@ -12,7 +12,7 @@
               v-for="item in navigation.social"
               :key="item.name"
               :href="item.href"
-              class="text-gray-500 hover:text-gray-400"
+              class="text-[#907AD6] hover:text-[#7FDEFF]"
             >
               <span class="sr-only">{{ item.name }}</span>
               <component :is="item.icon" class="size-6" aria-hidden="true" />
@@ -25,7 +25,7 @@
               <h3 class="text-sm/6 font-semibold text-white">Solutions</h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="item in navigation.solutions" :key="item.name">
-                  <a :href="item.href" class="text-sm/6 text-gray-400 hover:text-white">{{ item.name }}</a>
+                  <a :href="item.href" class="text-sm/6 font-bold text-[#907AD6] hover:text-[#7FDEFF]">{{ item.name }}</a>
                 </li>
               </ul>
             </div>
@@ -33,7 +33,7 @@
               <h3 class="text-sm/6 font-semibold text-white">Support</h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="item in navigation.support" :key="item.name">
-                  <a :href="item.href" class="text-sm/6 text-gray-400 hover:text-white">{{ item.name }}</a>
+                  <a :href="item.href" class="text-sm/6 font-bold text-[#907AD6] hover:text-[#7FDEFF]">{{ item.name }}</a>
                 </li>
               </ul>
             </div>
@@ -43,7 +43,7 @@
               <h3 class="text-sm/6 font-semibold text-white">Company</h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="item in navigation.company" :key="item.name">
-                  <a :href="item.href" class="text-sm/6 text-gray-400 hover:text-white">{{ item.name }}</a>
+                  <a :href="item.href" class="text-sm/6 font-bold text-[#907AD6] hover:text-[#7FDEFF]">{{ item.name }}</a>
                 </li>
               </ul>
             </div>
@@ -51,17 +51,17 @@
               <h3 class="text-sm/6 font-semibold text-white">Legal</h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="item in navigation.legal" :key="item.name">
-                  <a :href="item.href" class="text-sm/6 text-gray-400 hover:text-white">{{ item.name }}</a>
+                  <a :href="item.href" class="text-sm/6 font-bold text-[#907AD6] hover:text-[#7FDEFF]">{{ item.name }}</a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-      <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24 lg:flex lg:items-center lg:justify-between">
+      <div class="mt-16 border-t border-[#DABFFF]/10 pt-8 sm:mt-20 lg:mt-24 lg:flex lg:items-center lg:justify-between">
         <div>
           <h3 class="text-sm/6 font-semibold text-white">Subscribe to our newsletter</h3>
-          <p class="mt-2 text-sm/6 text-gray-400">The latest news, articles, and resources, sent to your inbox weekly.</p>
+          <p class="mt-2 text-sm/6 text-[#907AD6]">The latest news, articles, and resources, sent to your inbox weekly.</p>
         </div>
         <form class="mt-6 sm:flex sm:max-w-md lg:mt-0" @submit.prevent="subscribe">
           <label for="email-address" class="sr-only">Email address</label>
@@ -73,20 +73,20 @@
             autocomplete="email"
             required
             placeholder="Enter your email"
-            class="w-full min-w-0 rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:w-64 sm:text-sm/6"
+            class="w-full min-w-0 rounded-md bg-[#DABFFF]/10 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-[#DABFFF]/10 placeholder:text-[#907AD6] focus:outline-2 focus:-outline-offset-2 focus:outline-[#7FDEFF] sm:w-64 sm:text-sm/6"
           />
           <div class="mt-4 sm:mt-0 sm:ml-4 sm:shrink-0">
             <button
               type="submit"
-              class="flex w-full items-center justify-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+              class="flex w-full items-center justify-center rounded-md bg-[#7FDEFF] px-3 py-2 text-sm font-semibold text-[#2C2A4A] shadow-xs hover:bg-[#DABFFF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7FDEFF]"
             >
               Subscribe
             </button>
           </div>
         </form>
       </div>
-      <div class="mt-8 border-t border-white/10 pt-8">
-        <p class="text-sm/6 text-gray-400">&copy; {{ currentYear }} Your Company, Inc. All rights reserved.</p>
+      <div class="mt-8 border-t border-[#DABFFF]/10 pt-8">
+        <p class="text-sm/6 text-[#907AD6]">&copy; {{ currentYear }} Your Company, Inc. All rights reserved.</p>
       </div>
     </div>
   </footer>
