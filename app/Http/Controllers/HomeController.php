@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Services\HomeService;
+use App\Services\Home\HomeService;
 use Inertia\Response;
 
 class HomeController extends Controller

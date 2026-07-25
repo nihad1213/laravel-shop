@@ -47,7 +47,7 @@
         </Popover>
 
         <a href="#" class="text-sm/6 font-bold text-white">Marketplace</a>
-        <a href="#" class="text-sm/6 font-bold text-white">About Us</a>
+        <a href="{{  }}" class="text-sm/6 font-bold text-white">About Us</a>
         <a href="#" class="text-sm/6 font-bold text-white">Contact</a>
       </PopoverGroup>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
