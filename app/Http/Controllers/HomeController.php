@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Services\Home\AboutUsService;
 use App\Services\Home\HomeService;
 use Inertia\Response;
 
@@ -11,10 +12,16 @@ class HomeController extends Controller
 {
     public function __construct(
         private readonly HomeService $homeService,
+        private readonly AboutUsService $aboutUsService,
     ) {}
 
     public function index(): Response
     {
         return $this->homeService->showHomePage();
+    }
+
+    public function aboutUs(): Response
+    {
+        return $this->aboutUsService->showAboutUsPage();
     }
 }
