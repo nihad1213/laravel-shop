@@ -24,4 +24,9 @@ class HomeController extends Controller
     {
         return $this->aboutUsService->showAboutUsPage();
     }
+
+    public function contact(): Response
+    {
+        return $this->contactService->showContactPage();
+    }
 }
