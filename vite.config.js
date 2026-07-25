@@ -3,6 +3,7 @@ import laravel from 'laravel-vite-plugin';
 import { bunny } from 'laravel-vite-plugin/fonts';
 import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
+import path from 'path';
 
 
 export default defineConfig({
@@ -20,15 +21,18 @@ export default defineConfig({
         vue(),
     ],
     server: {
-        host: '127.0.0.1',
-        
-        watch: {
-            ignored: ['**/storage/framework/views/**'],
+        host: '0.0.0.0',
+        port: 5173,
+        hmr: {
+            host: 'localhost',
         },
-        
+        watch: {
+            usePolling: true,
+        },
     },
     resolve: {
         alias: {
+            '@': path.resolve(__dirname, './resources/js'),
             'vue': 'vue/dist/vue.esm-bundler.js'
         }
     }
