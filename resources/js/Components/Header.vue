@@ -88,7 +88,7 @@ const mobileMenuOpen = ref(false)
 
         <a href="#" class="text-sm/6 font-bold text-white">Marketplace</a>
         <Link :href="route('about-us')" class="text-sm/6 font-bold text-white">About Us</Link>
-        <a href="#" class="text-sm/6 font-bold text-white">Contact</a>
+        <Link :href="route('contact')" class="text-sm/6 font-bold text-white">Contact</Link>
       </PopoverGroup>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <a href="#" class="text-sm/6 font-bold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
