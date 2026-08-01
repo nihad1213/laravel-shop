@@ -123,9 +123,9 @@ const cartItemCount = ref(3)
 
         <span class="h-6 w-px bg-[#DABFFF]/20" aria-hidden="true"></span>
 
-        <a href="#" class="text-sm/6 font-bold text-white hover:text-[#7FDEFF] transition-colors">
+        <Link :href="route('login')" class="text-sm/6 font-bold text-white hover:text-[#7FDEFF] transition-colors">
           Log in <span aria-hidden="true">&rarr;</span>
-        </a>
+        </Link>
       </div>
     </nav>
 
