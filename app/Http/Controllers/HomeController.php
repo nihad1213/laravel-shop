@@ -16,7 +16,8 @@ class HomeController extends Controller
         private readonly HomeService $homeService,
         private readonly AboutUsService $aboutUsService,
         private readonly ContactService $contactService,
-        private readonly LoginFormShowService $loginFormShowService
+        private readonly LoginFormShowService $loginFormShowService,
+        private readonly RegisterFormShowService $registerFormShowService,
     ) {}
 
     public function index(): Response
@@ -34,8 +35,13 @@ class HomeController extends Controller
         return $this->contactService->showContactPage();
     }
 
-    public function login(): Response
+    public function loginFormShow(): Response
     {
         return $this->loginFormShowService->showLoginForm();
+    }
+
+    public function registerFormShow(): Response
+    {
+        return $this->registerFormShowService->showRegisterForm();
     }
 }
