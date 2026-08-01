@@ -13,16 +13,31 @@ import { Link } from '@inertiajs/vue3'
         />
       </Link>
       <h2 class="mt-8 text-center text-2xl/9 font-bold tracking-tight text-white">
-        Sign in to your account
+        Create your account
       </h2>
       <p class="mt-2 text-center text-sm/6 text-white/60">
-        Welcome back, we missed you.
+        Join us, it only takes a minute.
       </p>
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <div class="rounded-3xl bg-[#4F518C] p-8 outline-1 -outline-offset-1 outline-[#DABFFF]/10 shadow-xl">
         <form class="space-y-6">
+          <div>
+            <label for="name" class="block text-sm/6 font-semibold text-white">
+              Full name
+            </label>
+            <div class="mt-2">
+              <input
+                id="name"
+                type="text"
+                name="name"
+                autocomplete="name"
+                class="block w-full rounded-lg border-0 bg-[#2C2A4A]/50 px-3 py-2 text-sm/6 text-white outline-1 -outline-offset-1 outline-[#DABFFF]/20 placeholder:text-white/40 focus:outline-2 focus:-outline-offset-2 focus:outline-[#7FDEFF]"
+              />
+            </div>
+          </div>
+
           <div>
             <label for="email" class="block text-sm/6 font-semibold text-white">
               Email address
@@ -39,35 +54,33 @@ import { Link } from '@inertiajs/vue3'
           </div>
 
           <div>
-            <div class="flex items-center justify-between">
-              <label for="password" class="block text-sm/6 font-semibold text-white">
-                Password
-              </label>
-              <Link href="#" class="text-sm font-semibold text-[#907AD6] hover:text-[#7FDEFF] transition-colors">
-                Forgot password?
-              </Link>
-            </div>
+            <label for="password" class="block text-sm/6 font-semibold text-white">
+              Password
+            </label>
             <div class="mt-2">
               <input
                 id="password"
                 type="password"
                 name="password"
-                autocomplete="current-password"
+                autocomplete="new-password"
                 class="block w-full rounded-lg border-0 bg-[#2C2A4A]/50 px-3 py-2 text-sm/6 text-white outline-1 -outline-offset-1 outline-[#DABFFF]/20 placeholder:text-white/40 focus:outline-2 focus:-outline-offset-2 focus:outline-[#7FDEFF]"
               />
             </div>
           </div>
 
-          <div class="flex items-center">
-            <input
-              id="remember"
-              type="checkbox"
-              name="remember"
-              class="size-4 rounded border-[#DABFFF]/30 bg-[#2C2A4A]/50 text-[#907AD6] focus:ring-[#7FDEFF]"
-            />
-            <label for="remember" class="ml-2 block text-sm text-white/70">
-              Remember me
+          <div>
+            <label for="password_confirmation" class="block text-sm/6 font-semibold text-white">
+              Confirm password
             </label>
+            <div class="mt-2">
+              <input
+                id="password_confirmation"
+                type="password"
+                name="password_confirmation"
+                autocomplete="new-password"
+                class="block w-full rounded-lg border-0 bg-[#2C2A4A]/50 px-3 py-2 text-sm/6 text-white outline-1 -outline-offset-1 outline-[#DABFFF]/20 placeholder:text-white/40 focus:outline-2 focus:-outline-offset-2 focus:outline-[#7FDEFF]"
+              />
+            </div>
           </div>
 
           <div>
@@ -75,16 +88,16 @@ import { Link } from '@inertiajs/vue3'
               type="submit"
               class="flex w-full justify-center rounded-lg bg-[#907AD6] px-3 py-2.5 text-sm/6 font-bold text-white shadow-sm hover:bg-[#7FDEFF] hover:text-[#2C2A4A] transition-colors"
             >
-              Sign in
+              Create account
             </button>
           </div>
         </form>
       </div>
 
       <p class="mt-8 text-center text-sm/6 text-white/60">
-        Don't have an account?
-        <Link :href="route('register')" class="font-bold text-[#907AD6] hover:text-[#7FDEFF] transition-colors">
-          Register here
+        Already have an account?
+        <Link :href="route('login')" class="font-bold text-[#907AD6] hover:text-[#7FDEFF] transition-colors">
+          Log in here
         </Link>
       </p>
     </div>

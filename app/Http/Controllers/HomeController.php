@@ -8,6 +8,7 @@ use App\Services\Home\AboutUsService;
 use App\Services\Home\ContactService;
 use App\Services\Home\HomeService;
 use App\Services\Home\LoginFormShowService;
+use App\Services\Home\RegisterFormShowService;
 use Inertia\Response;
 
 class HomeController extends Controller
