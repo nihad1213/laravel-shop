@@ -11,6 +11,6 @@ class HomeService
 {
     public function showHomePage(): Response
     {
-        return Inertia::render('HomePage');
+        return Inertia::render('Home/HomePage');
     }
 }

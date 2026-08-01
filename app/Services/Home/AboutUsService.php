@@ -11,6 +11,6 @@ class AboutUsService
 {
     public function showAboutUsPage(): Response
     {
-        return Inertia::render('AboutUsPage');
+        return Inertia::render('Home/AboutUsPage');
     }
 }

@@ -11,6 +11,6 @@ class ContactService
 {
     public function showContactPage(): Response
     {
-        return Inertia::render('ContactPage');
+        return Inertia::render('Home/ContactPage');
     }
 }
