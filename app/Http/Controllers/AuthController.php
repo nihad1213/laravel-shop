@@ -9,6 +9,7 @@ use App\Services\Auth\LoginFormShowService;
 use App\Services\Auth\LoginService;
 use App\Services\Auth\RegisterFormShowService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Inertia\Response;
 
 class AuthController extends Controller
@@ -24,9 +25,9 @@ class AuthController extends Controller
         return $this->loginFormShowService->showLoginForm();
     }
 
-    public function login(): RedirectResponse
+    public function login(Request $request): RedirectResponse
     {
-        return $this->loginService->login();
+        return $this->loginService->login($request);
     }
 
     public function registerFormShow(): Response
