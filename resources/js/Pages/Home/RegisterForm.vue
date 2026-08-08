@@ -1,7 +1,21 @@
 <script setup>
-import { Link } from '@inertiajs/vue3'
-import Header from '@/Components/Header.vue'
-import Footer from '@/Components/Footer.vue'
+import { Link, useForm } from '@inertiajs/vue3';
+import Header from '@/Components/Header.vue';
+import Footer from '@/Components/Footer.vue';
+
+const form = useForm({
+  name: '',
+  email: '',
+  password: '',
+  password_confirmation: '',
+});
+
+function submit() {
+  form.post(route('register.store'), {
+    onFinish: () => form.reset('password', 'password_confirmation'),
+  })
+}
+
 </script>
 
 <template>
@@ -27,7 +41,7 @@ import Footer from '@/Components/Footer.vue'
 
       <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <div class="rounded-3xl bg-white p-8 outline-1 -outline-offset-1 outline-[#2C2A4A]/10 shadow-xl">
-          <form class="space-y-6">
+          <form class="space-y-6" @submit.prevent="submit">
             <div>
               <label for="name" class="block text-sm/6 font-semibold text-[#2C2A4A]">
                 Full name
@@ -35,11 +49,13 @@ import Footer from '@/Components/Footer.vue'
               <div class="mt-2">
                 <input
                   id="name"
+                  v-model="form.name"
                   type="text"
                   name="name"
                   autocomplete="name"
                   class="block w-full rounded-lg border-0 bg-[#2C2A4A]/5 px-3 py-2 text-sm/6 text-[#2C2A4A] outline-1 -outline-offset-1 outline-[#2C2A4A]/15 placeholder:text-[#2C2A4A]/40 focus:outline-2 focus:-outline-offset-2 focus:outline-[#907AD6]"
                 />
+                <p v-if="form.errors.name" class="mt-1 text-sm text-red-600">{{ form.errors.name }}</p>
               </div>
             </div>
 
@@ -50,11 +66,13 @@ import Footer from '@/Components/Footer.vue'
               <div class="mt-2">
                 <input
                   id="email"
+                  v-model="form.email"
                   type="email"
                   name="email"
                   autocomplete="email"
                   class="block w-full rounded-lg border-0 bg-[#2C2A4A]/5 px-3 py-2 text-sm/6 text-[#2C2A4A] outline-1 -outline-offset-1 outline-[#2C2A4A]/15 placeholder:text-[#2C2A4A]/40 focus:outline-2 focus:-outline-offset-2 focus:outline-[#907AD6]"
                 />
+                <p v-if="form.errors.email" class="mt-1 text-sm text-red-600">{{ form.errors.email }}</p>
               </div>
             </div>
 
@@ -65,11 +83,13 @@ import Footer from '@/Components/Footer.vue'
               <div class="mt-2">
                 <input
                   id="password"
+                  v-model="form.password"
                   type="password"
                   name="password"
                   autocomplete="new-password"
                   class="block w-full rounded-lg border-0 bg-[#2C2A4A]/5 px-3 py-2 text-sm/6 text-[#2C2A4A] outline-1 -outline-offset-1 outline-[#2C2A4A]/15 placeholder:text-[#2C2A4A]/40 focus:outline-2 focus:-outline-offset-2 focus:outline-[#907AD6]"
                 />
+                <p v-if="form.errors.password" class="mt-1 text-sm text-red-600">{{ form.errors.password }}</p>
               </div>
             </div>
 
@@ -80,20 +100,23 @@ import Footer from '@/Components/Footer.vue'
               <div class="mt-2">
                 <input
                   id="password_confirmation"
+                  v-model="form.password_confirmation"
                   type="password"
                   name="password_confirmation"
                   autocomplete="new-password"
                   class="block w-full rounded-lg border-0 bg-[#2C2A4A]/5 px-3 py-2 text-sm/6 text-[#2C2A4A] outline-1 -outline-offset-1 outline-[#2C2A4A]/15 placeholder:text-[#2C2A4A]/40 focus:outline-2 focus:-outline-offset-2 focus:outline-[#907AD6]"
                 />
+                <p v-if="form.errors.password_confirmation" class="mt-1 text-sm text-red-600">{{ form.errors.password_confirmation }}</p>
               </div>
             </div>
 
             <div>
               <button
                 type="submit"
-                class="flex w-full justify-center rounded-lg bg-[#907AD6] px-3 py-2.5 text-sm/6 font-bold text-white shadow-sm hover:bg-[#7FDEFF] hover:text-[#2C2A4A] transition-colors"
+                :disabled="form.processing"
+                class="flex w-full justify-center rounded-lg bg-[#907AD6] px-3 py-2.5 text-sm/6 font-bold text-white shadow-sm hover:bg-[#7FDEFF] hover:text-[#2C2A4A] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Create account
+                {{ form.processing ? 'Creating account...' : 'Create account' }}
               </button>
             </div>
           </form>
