@@ -8,5 +8,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
-Route::get('/login', [AuthController::class, 'loginFormShow'])->name('login');
-Route::get('/register', [AuthController::class, 'registerFormShow'])->name('register');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'loginFormShow'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.store');
+
+    Route::get('/register', [AuthController::class, 'registerFormShow'])->name('register');
+    Route::post('/register', [AuthController::class, 'register'])->name('register.store');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
