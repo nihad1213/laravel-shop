@@ -86,7 +86,7 @@ const blogPosts = [
             <div class="mb-10">
                 <div class="mb-6">
                     <div
-                        class="bg-[#2C2A4A] py-3.5 pl-6 pr-10 inline-block max-w-full"
+                        class="bg-[#2C2A4A] py-3.5 pl-4 pr-10 inline-block max-w-full"
                         style="clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 50%, calc(100% - 28px) 100%, 0 100%);"
                     >
                         <h1 class="text-lg sm:text-xl font-bold text-white whitespace-nowrap">
