@@ -1,5 +1,6 @@
 <script setup>
 import { Link, useForm } from '@inertiajs/vue3';
+import { route } from 'ziggy-js'; 
 import Header from '@/Components/Header.vue';
 import Footer from '@/Components/Footer.vue';
 

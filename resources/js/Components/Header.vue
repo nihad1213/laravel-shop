@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import {
   Dialog,
   DialogPanel,
@@ -17,12 +17,13 @@ import {
   ChartPieIcon,
   CursorArrowRaysIcon,
   FingerPrintIcon,
-  ShoppingBagIcon, // <--- Added Shopping Bag Icon
+  ShoppingBagIcon,
   SquaresPlusIcon,
   XMarkIcon,
+  UserCircleIcon,
 } from '@heroicons/vue/24/outline';
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid';
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 
 const products = [
   { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -38,8 +39,14 @@ const callsToAction = [
 
 const mobileMenuOpen = ref(false)
 
-// Optional: Item count for cart badge (replace with your Pinia store or prop)
 const cartItemCount = ref(3) 
+
+const page = usePage();
+const user = computed(() => page.props.auth?.user);
+
+function logout() {
+  router.post(route('logout'));
+}
 </script>
 
 <template>
@@ -50,23 +57,6 @@ const cartItemCount = ref(3)
           <span class="sr-only">Laravel Shop</span>
           <img class="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="" />
         </Link>
-      </div>
-
-      <!-- Mobile Right Controls (Cart + Mobile Menu Toggle) -->
-      <div class="flex items-center gap-x-4 lg:hidden">
-        <!-- Mobile Cart Icon -->
-        <Link href="#" class="relative -m-2.5 p-2.5 text-white hover:text-[#7FDEFF] transition-colors">
-          <span class="sr-only">View cart</span>
-          <ShoppingBagIcon class="size-6" aria-hidden="true" />
-          <span v-if="cartItemCount > 0" class="absolute top-1 right-1 flex size-4 items-center justify-center rounded-full bg-[#907AD6] text-[10px] font-bold text-white">
-            {{ cartItemCount }}
-          </span>
-        </Link>
-
-        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-[#907AD6]" @click="mobileMenuOpen = true">
-          <span class="sr-only">Open main menu</span>
-          <Bars3Icon class="size-6" aria-hidden="true" />
-        </button>
       </div>
 
       <PopoverGroup class="hidden lg:flex lg:gap-x-12">
@@ -123,9 +113,31 @@ const cartItemCount = ref(3)
 
         <span class="h-6 w-px bg-[#DABFFF]/20" aria-hidden="true"></span>
 
-        <Link :href="route('login')" class="text-sm/6 font-bold text-white hover:text-[#7FDEFF] transition-colors">
-          Log in <span aria-hidden="true">&rarr;</span>
-        </Link>
+        <template v-if="user">
+          <Popover class="relative">
+            <PopoverButton class="flex items-center gap-x-1 text-white hover:text-[#7FDEFF] transition-colors">
+              <UserCircleIcon class="size-7" aria-hidden="true" />
+              <span class="text-sm/6 font-bold">{{ user.name }}</span>
+              <ChevronDownIcon class="size-4" aria-hidden="true" />
+            </PopoverButton>
+            <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="translate-y-0" leave-to-class="opacity-0 translate-y-1">
+              <PopoverPanel class="absolute right-0 z-10 mt-3 w-48 rounded-2xl bg-[#4F518C] p-2 outline-1 -outline-offset-1 outline-[#DABFFF]/10">
+                <button
+                  type="button"
+                  @click="logout"
+                  class="block w-full rounded-lg px-4 py-2 text-left text-sm/6 font-bold text-white hover:bg-[#2C2A4A]/40"
+                >
+                  Log out
+                </button>
+              </PopoverPanel>
+            </transition>
+          </Popover>
+        </template>
+        <template v-else>
+          <Link :href="route('login')" class="text-sm/6 font-bold text-white hover:text-[#7FDEFF] transition-colors">
+            Log in <span aria-hidden="true">&rarr;</span>
+          </Link>
+        </template>
       </div>
     </nav>
   </header>
