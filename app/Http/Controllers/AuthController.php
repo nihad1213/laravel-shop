@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Services\Auth\LoginFormShowService;
 use App\Services\Auth\LoginService;
+use App\Services\Auth\LogoutService;
 use App\Services\Auth\RegisterFormShowService;
 use App\Services\Auth\RegisterService;
 use Illuminate\Http\RedirectResponse;
@@ -20,6 +21,7 @@ class AuthController extends Controller
         private readonly RegisterFormShowService $registerFormShowService,
         private readonly LoginService $loginService,
         private readonly RegisterService $registerService,
+        private readonly LogoutService $logoutService,
     ){}
 
     public function loginFormShow(): Response
@@ -40,5 +42,10 @@ class AuthController extends Controller
     public function register(Request $request): RedirectResponse
     {
         return $this->registerService->register($request);
+    }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        return $this->logoutService->logout($request);
     }
 }
