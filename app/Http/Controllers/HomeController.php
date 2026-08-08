@@ -7,8 +7,6 @@ namespace App\Http\Controllers;
 use App\Services\Home\AboutUsService;
 use App\Services\Home\ContactService;
 use App\Services\Home\HomeService;
-use App\Services\Home\LoginFormShowService;
-use App\Services\Home\RegisterFormShowService;
 use Inertia\Response;
 
 class HomeController extends Controller
@@ -17,8 +15,6 @@ class HomeController extends Controller
         private readonly HomeService $homeService,
         private readonly AboutUsService $aboutUsService,
         private readonly ContactService $contactService,
-        private readonly LoginFormShowService $loginFormShowService,
-        private readonly RegisterFormShowService $registerFormShowService,
     ) {}
 
     public function index(): Response
@@ -34,15 +30,5 @@ class HomeController extends Controller
     public function contact(): Response
     {
         return $this->contactService->showContactPage();
-    }
-
-    public function loginFormShow(): Response
-    {
-        return $this->loginFormShowService->showLoginForm();
-    }
-
-    public function registerFormShow(): Response
-    {
-        return $this->registerFormShowService->showRegisterForm();
     }
 }
