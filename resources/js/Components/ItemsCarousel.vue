@@ -34,7 +34,7 @@ defineProps({
 
     <button
       type="button"
-      class="carousel-prev absolute top-1/2 -left-4 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white p-2 text-[#2C2A4A] opacity-0 shadow-md transition group-hover/carousel:opacity-100 hover:bg-[#2C2A4A] hover:text-white"
+      class="carousel-prev absolute top-1/2 left-2 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white p-2 text-[#2C2A4A] opacity-0 shadow-md transition group-hover/carousel:opacity-100 hover:bg-[#2C2A4A] hover:text-white"
       aria-label="Previous items"
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -43,7 +43,7 @@ defineProps({
     </button>
     <button
       type="button"
-      class="carousel-next absolute top-1/2 -right-4 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white p-2 text-[#2C2A4A] opacity-0 shadow-md transition group-hover/carousel:opacity-100 hover:bg-[#2C2A4A] hover:text-white"
+      class="carousel-next absolute top-1/2 right-2 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white p-2 text-[#2C2A4A] opacity-0 shadow-md transition group-hover/carousel:opacity-100 hover:bg-[#2C2A4A] hover:text-white"
       aria-label="Next items"
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
