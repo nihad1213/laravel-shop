@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { Link, usePage, router } from '@inertiajs/vue3'
+import { route } from 'ziggy-js'
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import {
     Squares2X2Icon,
