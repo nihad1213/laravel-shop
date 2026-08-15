@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { Link, usePage, router } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
@@ -12,6 +12,7 @@ import {
     Bars3Icon,
     XMarkIcon,
     ArrowRightStartOnRectangleIcon,
+    CheckCircleIcon,
 } from '@heroicons/vue/24/outline'
 
 defineProps({
@@ -21,15 +22,18 @@ defineProps({
 const page = usePage()
 const user = computed(() => page.props.auth?.user)
 const initial = computed(() => user.value?.name?.trim()?.charAt(0)?.toUpperCase() ?? '?')
+const flashSuccess = computed(() => page.props.flash?.success)
+const flashDismissed = ref(false)
+watch(flashSuccess, () => { flashDismissed.value = false })
 
 const navigation = [
-    { name: 'Dashboard', route: 'admin.dashboard', icon: Squares2X2Icon },
-    { name: 'Users', route: 'admin.users', icon: UsersIcon },
-    { name: 'Products', route: 'admin.products', icon: CubeIcon },
-    { name: 'Subscribers', route: 'admin.subscribers', icon: EnvelopeIcon },
+    { name: 'Dashboard', route: 'admin.dashboard', match: 'admin.dashboard', icon: Squares2X2Icon },
+    { name: 'Users', route: 'admin.users', match: 'admin.users', icon: UsersIcon },
+    { name: 'Products', route: 'admin.products.index', match: 'admin.products.*', icon: CubeIcon },
+    { name: 'Subscribers', route: 'admin.subscribers', match: 'admin.subscribers', icon: EnvelopeIcon },
 ]
 
-const isCurrent = (routeName) => route().current(routeName) || route().current(`${routeName}.*`)
+const isCurrent = (item) => route().current(item.match)
 
 const sidebarOpen = ref(false)
 
@@ -95,14 +99,14 @@ function logout() {
                                                 :href="route(item.route)"
                                                 @click="sidebarOpen = false"
                                                 class="group flex items-center gap-x-3 rounded-lg border-l-2 px-3 py-2 text-sm font-semibold transition-colors"
-                                                :class="isCurrent(item.route)
+                                                :class="isCurrent(item)
                                                     ? 'border-[#7FDEFF] bg-white/10 text-white'
                                                     : 'border-transparent text-white/60 hover:border-white/20 hover:bg-white/5 hover:text-white'"
                                             >
                                                 <component
                                                     :is="item.icon"
                                                     class="size-5 shrink-0"
-                                                    :class="isCurrent(item.route) ? 'text-[#7FDEFF]' : 'text-white/40 group-hover:text-white/70'"
+                                                    :class="isCurrent(item) ? 'text-[#7FDEFF]' : 'text-white/40 group-hover:text-white/70'"
                                                     aria-hidden="true"
                                                 />
                                                 {{ item.name }}
@@ -131,14 +135,14 @@ function logout() {
                             <Link
                                 :href="route(item.route)"
                                 class="group flex items-center gap-x-3 rounded-lg border-l-2 px-3 py-2 text-sm font-semibold transition-colors"
-                                :class="isCurrent(item.route)
+                                :class="isCurrent(item)
                                     ? 'border-[#7FDEFF] bg-white/10 text-white'
                                     : 'border-transparent text-white/60 hover:border-white/20 hover:bg-white/5 hover:text-white'"
                             >
                                 <component
                                     :is="item.icon"
                                     class="size-5 shrink-0"
-                                    :class="isCurrent(item.route) ? 'text-[#7FDEFF]' : 'text-white/40 group-hover:text-white/70'"
+                                    :class="isCurrent(item) ? 'text-[#7FDEFF]' : 'text-white/40 group-hover:text-white/70'"
                                     aria-hidden="true"
                                 />
                                 {{ item.name }}
@@ -182,6 +186,18 @@ function logout() {
                     <span class="flex size-8 items-center justify-center rounded-full bg-[#907AD6] text-xs font-bold text-white">
                         {{ initial }}
                     </span>
+                </div>
+            </div>
+
+            <div v-if="flashSuccess && !flashDismissed" class="px-4 pt-6 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between gap-3 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
+                    <div class="flex items-center gap-2">
+                        <CheckCircleIcon class="size-5 shrink-0 text-emerald-500" aria-hidden="true" />
+                        {{ flashSuccess }}
+                    </div>
+                    <button type="button" class="text-emerald-500 hover:text-emerald-700" @click="flashDismissed = true">
+                        <XMarkIcon class="size-4" aria-hidden="true" />
+                    </button>
                 </div>
             </div>
 

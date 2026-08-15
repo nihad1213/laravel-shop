@@ -13,7 +13,7 @@ defineProps({
 const cards = [
     { name: 'Total Users', key: 'users', icon: UsersIcon },
     { name: 'Admins', key: 'admins', icon: ShieldCheckIcon },
-    { name: 'Products', value: '—', icon: CubeIcon },
+    { name: 'Products', key: 'products', icon: CubeIcon },
     { name: 'Subscribers', value: '—', icon: EnvelopeIcon },
 ]
 </script>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -23,7 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
         Route::get('/users', [AdminController::class, 'users'])->name('users');
-        Route::get('/products', [AdminController::class, 'products'])->name('products');
+        Route::resource('products', ProductController::class)->except(['show']);
         Route::get('/subscribers', [AdminController::class, 'subscribers'])->name('subscribers');
     });
 });
