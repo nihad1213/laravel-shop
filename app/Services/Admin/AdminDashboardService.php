@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace App\Services\Admin;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class AdminDashboardService
 {
     public function showDashboard(Request $request): Response
     {
-        if (! $request->user()?->is_admin) {
-            throw new HttpException(403);
-        }
-
-        return Inertia::render('Admin/Dashboard');
+        return Inertia::render('Admin/Dashboard', [
+            'stats' => [
+                'users' => User::query()->count(),
+                'admins' => User::query()->where('is_admin', true)->count(),
+            ],
+        ]);
     }
 }
