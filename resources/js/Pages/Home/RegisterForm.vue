@@ -1,6 +1,7 @@
 <script setup>
 import { Link, useForm } from '@inertiajs/vue3';
-import { route } from 'ziggy-js'; 
+import { route } from 'ziggy-js';
+import { Ziggy } from '@/ziggy';
 import Header from '@/Components/Header.vue';
 import Footer from '@/Components/Footer.vue';
 
@@ -12,7 +13,7 @@ const form = useForm({
 });
 
 function submit() {
-  form.post(route('register.store'), {
+  form.post(route('register.store', undefined, undefined, Ziggy), {
     onFinish: () => form.reset('password', 'password_confirmation'),
   })
 }
@@ -125,7 +126,7 @@ function submit() {
 
         <p class="mt-8 text-center text-sm/6 text-[#2C2A4A]/60">
           Already have an account?
-          <Link :href="route('login')" class="font-bold text-[#907AD6] hover:text-[#4F518C] transition-colors">
+          <Link :href="route('login', undefined, undefined, Ziggy)" class="font-bold text-[#907AD6] hover:text-[#4F518C] transition-colors">
             Log in here
           </Link>
         </p>
