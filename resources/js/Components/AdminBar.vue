@@ -1,20 +1,34 @@
 <script setup>
 import { computed } from 'vue'
 import { Link, usePage } from '@inertiajs/vue3'
-import { Cog6ToothIcon } from '@heroicons/vue/20/solid'
+import { Squares2X2Icon } from '@heroicons/vue/20/solid'
 
 const page = usePage()
 const user = computed(() => page.props.auth?.user)
+
+const initial = computed(() => user.value?.name?.trim()?.charAt(0)?.toUpperCase() ?? '?')
 </script>
 
 <template>
-    <div v-if="user?.is_admin" class="bg-[#1F1D38] text-white text-xs sm:text-sm">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
-            <Link :href="route('admin.dashboard')" class="flex items-center gap-1.5 font-semibold hover:text-[#7FDEFF] transition-colors">
-                <Cog6ToothIcon class="size-4" aria-hidden="true" />
+    <div v-if="user?.is_admin" class="bg-[#101014] border-b border-white/10 text-[13px] leading-none">
+        <div class="mx-auto flex max-w-7xl items-stretch justify-between px-2 lg:px-4">
+            <Link
+                :href="route('admin.dashboard')"
+                class="flex items-center gap-1.5 px-3 py-2 font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors"
+            >
+                <Squares2X2Icon class="size-4 text-[#7FDEFF]" aria-hidden="true" />
                 Go to Admin
             </Link>
-            <span class="text-white/60">Howdy, {{ user.name }}</span>
+
+            <Link
+                :href="route('admin.dashboard')"
+                class="flex items-center gap-2 px-3 py-2 text-white/60 hover:bg-white/10 hover:text-white transition-colors"
+            >
+                <span>Howdy, {{ user.name }}</span>
+                <span class="flex size-5 items-center justify-center rounded-full bg-[#7FDEFF] text-[11px] font-bold text-[#101014]">
+                    {{ initial }}
+                </span>
+            </Link>
         </div>
     </div>
 </template>
