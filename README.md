@@ -1,1 +1,1 @@
-This project is built using the Laravel MVC architecture and follows Laravel MVC best practices.
+This is a test project built with Laravel, Inertia, and Vue.
