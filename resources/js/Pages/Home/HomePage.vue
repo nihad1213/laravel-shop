@@ -3,16 +3,9 @@ import MainLayout from '@/Layouts/MainLayout.vue';
 import ItemsCarousel from '@/Components/ItemsCarousel.vue';
 import BlogCard from '@/Components/BlogCard.vue';
 
-const bestSelling = [
-  { id: 1, title: 'Midnight Static', artist: 'Coral Drift', price: 24.99, image: 'https://picsum.photos/seed/vinyl1/400/400', format: 'Vinyl', badge: 'Best Seller' },
-  { id: 2, title: 'Glass Harbor', artist: 'The Nightwires', price: 19.5, image: 'https://picsum.photos/seed/vinyl2/400/400', format: 'CD' },
-  { id: 3, title: 'Paper Moons', artist: 'Ivy & Echo', price: 27.0, image: 'https://picsum.photos/seed/vinyl3/400/400', format: 'Vinyl', badge: 'New' },
-  { id: 4, title: 'Static Bloom', artist: 'Marlowe', price: 22.25, image: 'https://picsum.photos/seed/vinyl4/400/400', format: 'Vinyl' },
-  { id: 5, title: 'Low Tide Radio', artist: 'Salt & Cedar', price: 18.99, image: 'https://picsum.photos/seed/vinyl5/400/400', format: 'CD' },
-  { id: 6, title: 'Amber Signals', artist: 'Foxglove', price: 26.5, image: 'https://picsum.photos/seed/vinyl6/400/400', format: 'Vinyl' },
-  { id: 7, title: 'Amber Signals', artist: 'Foxglove', price: 26.5, image: 'https://picsum.photos/seed/vinyl6/400/400', format: 'Vinyl' },
-
-];
+defineProps({
+  bestSelling: { type: Array, default: () => [] },
+});
 
 const mostValuable = [
   { id: 7, title: 'The Quiet Engine', artist: 'Holloway', price: 189.0, image: 'https://picsum.photos/seed/vinyl7/400/400', format: 'Vinyl', badge: 'Rare' },

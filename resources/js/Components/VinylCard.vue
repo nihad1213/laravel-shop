@@ -36,7 +36,7 @@ defineProps({
       <p class="mt-0.5 truncate text-sm text-gray-500">{{ item.artist }}</p>
 
       <div class="mt-3 flex items-center justify-between">
-        <span class="text-base font-bold text-[#2C2A4A]">${{ item.price.toFixed(2) }}</span>
+        <span class="text-base font-bold text-[#2C2A4A]">${{ Number(item.price).toFixed(2) }}</span>
 
         <button
           type="button"

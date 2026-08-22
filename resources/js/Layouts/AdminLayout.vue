@@ -7,6 +7,7 @@ import {
     Squares2X2Icon,
     UsersIcon,
     CubeIcon,
+    TrophyIcon,
     EnvelopeIcon,
     GlobeAltIcon,
     Bars3Icon,
@@ -30,6 +31,7 @@ const navigation = [
     { name: 'Dashboard', route: 'admin.dashboard', match: 'admin.dashboard', icon: Squares2X2Icon },
     { name: 'Users', route: 'admin.users', match: 'admin.users', icon: UsersIcon },
     { name: 'Products', route: 'admin.products.index', match: 'admin.products.*', icon: CubeIcon },
+    { name: 'Best Sellers', route: 'admin.best-sellers.index', match: 'admin.best-sellers.*', icon: TrophyIcon },
     { name: 'Subscribers', route: 'admin.subscribers', match: 'admin.subscribers', icon: EnvelopeIcon },
 ]
 
