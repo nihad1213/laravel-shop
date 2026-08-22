@@ -8,6 +8,7 @@ import {
     UsersIcon,
     CubeIcon,
     TrophyIcon,
+    NewspaperIcon,
     EnvelopeIcon,
     GlobeAltIcon,
     Bars3Icon,
@@ -32,6 +33,7 @@ const navigation = [
     { name: 'Users', route: 'admin.users', match: 'admin.users', icon: UsersIcon },
     { name: 'Products', route: 'admin.products.index', match: 'admin.products.*', icon: CubeIcon },
     { name: 'Best Sellers', route: 'admin.best-sellers.index', match: 'admin.best-sellers.*', icon: TrophyIcon },
+    { name: 'Blog Posts', route: 'admin.blog-posts.index', match: 'admin.blog-posts.*', icon: NewspaperIcon },
     { name: 'Subscribers', route: 'admin.subscribers', match: 'admin.subscribers', icon: EnvelopeIcon },
 ]
 

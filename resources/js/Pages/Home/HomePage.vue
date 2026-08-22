@@ -5,6 +5,7 @@ import BlogCard from '@/Components/BlogCard.vue';
 
 defineProps({
   bestSelling: { type: Array, default: () => [] },
+  blogPosts: { type: Array, default: () => [] },
 });
 
 const mostValuable = [
@@ -21,13 +22,6 @@ const mostCollected = [
   { id: 14, title: 'Marigold', artist: 'Junebird', price: 31.5, image: 'https://picsum.photos/seed/vinyl14/400/400', format: 'Vinyl', badge: 'Collector Pick' },
   { id: 15, title: 'Hollow Bells', artist: 'Ashgrove', price: 27.75, image: 'https://picsum.photos/seed/vinyl15/400/400', format: 'Vinyl' },
   { id: 16, title: 'Static Orchard', artist: 'Fenwick', price: 25.0, image: 'https://picsum.photos/seed/vinyl16/400/400', format: 'CD' },
-];
-
-const blogPosts = [
-  { id: 1, title: 'How to Store Your Vinyl Collection the Right Way', excerpt: 'Humidity, sunlight, and shelf angle all matter more than you think when it comes to keeping records in shape.', image: 'https://picsum.photos/seed/blog1/400/250', date: 'Jul 12, 2026', category: 'Guides' },
-  { id: 2, title: '5 Overlooked Pressings Worth a Second Look', excerpt: 'Some of the best sounding records never got the hype. Here are five that deserve more attention.', image: 'https://picsum.photos/seed/blog2/400/250', date: 'Jul 6, 2026', category: 'Collecting' },
-  { id: 3, title: 'CD or Vinyl: Does the Format Actually Change the Sound?', excerpt: 'We break down the real differences between formats, beyond the usual debate.', image: 'https://picsum.photos/seed/blog3/400/250', date: 'Jun 28, 2026', category: 'Deep Dive' },
-  { id: 4, title: 'Inside a Record Shop: A Day on the Floor', excerpt: 'What it actually takes to keep a crate-digging destination running week to week.', image: 'https://picsum.photos/seed/blog4/400/250', date: 'Jun 19, 2026', category: 'Stories' },
 ];
 </script>
 

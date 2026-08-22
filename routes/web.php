@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BestSellerController;
+use App\Http\Controllers\Admin\BlogPostController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
@@ -27,6 +28,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/users', [AdminController::class, 'users'])->name('users');
         Route::resource('products', ProductController::class)->except(['show']);
         Route::resource('best-sellers', BestSellerController::class)->except(['show']);
+        Route::resource('blog-posts', BlogPostController::class)->except(['show']);
         Route::get('/subscribers', [AdminController::class, 'subscribers'])->name('subscribers');
     });
 });
